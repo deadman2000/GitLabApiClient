@@ -92,5 +92,8 @@ namespace GitLabApiClient
             string url = _commitStatusesQueryBuilder.Build($"projects/{projectId}/repository/commits/{sha}/statuses", queryOptions);
             return await _httpFacade.GetPagedList<CommitStatuses>(url);
         }
+
+        public Task<Commit> CreateAsync(ProjectId projectId, CreateCommitRequest request) =>
+            _httpFacade.Post<Commit>($"projects/{projectId}/repository/commits", request);
     }
 }

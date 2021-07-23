@@ -51,5 +51,13 @@ namespace GitLabApiClient
         /// <param name="sha">The commit hash</param>
         /// <returns></returns>
         Task<IList<CommitStatuses>> GetStatusesAsync(ProjectId projectId, string sha, Action<CommitStatusesQueryOptions> options = null);
+
+        /// <summary>
+        /// Create a commit by project
+        /// </summary>
+        /// <param name="projectId">The ID, path or <see cref="Project"/> of the project.</param>
+        /// <param name="request">Create commit request</param>
+        /// <returns></returns>
+        Task<Commit> CreateAsync(ProjectId projectId, CreateCommitRequest request);
     }
 }
